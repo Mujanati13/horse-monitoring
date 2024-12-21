@@ -74,16 +74,16 @@ while cap.isOpened():
 
             # **Send the frame to the server** (Optimized Sending)
             _, encoded_frame = cv2.imencode('.jpg', annotated_frame, [cv2.IMWRITE_JPEG_QUALITY, 80])
-            # try:
-            #     response = requests.post(
-            #         SERVER_URL,
-            #         data=encoded_frame.tobytes(),
-            #         headers={'Content-Type': 'image/jpeg'}
-            #     )
-            #     if response.status_code != 200:
-            #         print(f"Error sending frame: {response.status_code}")
-            # except Exception as e:
-            #     print(f"Error sending frame: {e}")
+            try:
+                response = requests.post(
+                    SERVER_URL,
+                    data=encoded_frame.tobytes(),
+                    headers={'Content-Type': 'image/jpeg'}
+                )
+                if response.status_code != 200:
+                    print(f"Error sending frame: {response.status_code}")
+            except Exception as e:
+                print(f"Error sending frame: {e}")
 
     frame_count += 1
 
