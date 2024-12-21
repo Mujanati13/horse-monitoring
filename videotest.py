@@ -7,7 +7,7 @@ import requests
 SERVER_URL = "http://84.247.166.36:3000/video-frame"
 
 # Load the model
-model = YOLO('./best_v9_yolo11s_60epoches.pt')
+model = YOLO('./best_v4_yolo5u_50epochs.pt')
 video_path = 'rtsp://test1234:12345678@196.135.200.43:8080/stream2'  # Replace with your public IP
 # Open the video file or access a camera feed
 # video_path = './test8.mp4'  # Replace with your video file path, or use 0 for webcam feed
